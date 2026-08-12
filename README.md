@@ -1,5 +1,7 @@
 # BeandsAnalystik
 
+![BeandsAnalystik - AI skill suite](assets/BeandsAnalystik_GitHub_Header.png)
+
 Переносимый skill-пакет для продуктового, бизнес-, системного и security-анализа. Он помогает вести пользователя от неструктурированной идеи к набору связанных артефактов: требованиям, моделям данных, API-спецификациям, security review и итоговому отчёту.
 
 Поддерживаются **Hermes Agent** и **OpenClaw** через единый `SKILL.md` и установщик.
