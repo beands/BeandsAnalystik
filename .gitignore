@@ -18,6 +18,7 @@ env/
 *.p12
 *.pfx
 credentials*.json
+.git-credentials
 secrets*.json
 
 # Editors and operating systems
