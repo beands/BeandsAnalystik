@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+env/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Runtime output and temporary artefacts
+exports/
+tmp/
+reports/*.pdf
+reports/*.docx
+reports/test_*.md
+reports/project-context.md
+reports/beands-media-business-analysis.md
+*.log
+*.tmp
+*.bak
+
+# Node and database artefacts
+node_modules/
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz

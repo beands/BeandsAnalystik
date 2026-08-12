@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "_comment": "Конфигурация сборки и экспорта финального отчёта. Скрипт scripts/export_report.py читает этот файл (или同名 .yaml) для настроек. Все поля опциональны — есть значения по умолчанию.",
+  "document": {
+    "title": "Финальный отчёт",
+    "subtitle": "",
+    "author": "BeandsAnalystik Suite",
+    "subject": "Анализ проекта",
+    "keywords": ["анализ", "требования", "архитектура"],
+    "language": "ru"
+  },
+  "pdf": {
+    "engine": "auto",
+    "_engine_comment": "auto | weasyprint | xhtml2pdf. 'auto' выбирает первый доступный.",
+    "page_size": "A4",
+    "margin_top_mm": 20,
+    "margin_bottom_mm": 20,
+    "margin_left_mm": 18,
+    "margin_right_mm": 18,
+    "font_family": "DejaVu Sans, Arial, sans-serif",
+    "_font_comment": "Шрифт должен поддерживать кириллицу. DejaVu Sans идёт в комплекте с WeasyPrint.",
+    "font_size_pt": 11,
+    "line_height": 1.4,
+    "include_toc": true,
+    "include_page_numbers": true,
+    "page_break_before_h1": true,
+    "highlight_code_blocks": true
+  },
+  "docx": {
+    "template": null,
+    "_template_comment": "Путь к .docx-шаблону для стилей; null = использовать стиль по умолчанию.",
+    "font_family": "Calibri",
+    "font_size_pt": 11,
+    "include_toc": true,
+    "include_page_numbers": true,
+    "page_break_before_h1": true
+  },
+  "sections": {
+    "include": [
+      "executive-summary",
+      "product",
+      "goals",
+      "users",
+      "stakeholders",
+      "as-is",
+      "to-be",
+      "user-stories",
+      "functional-requirements",
+      "business-rules",
+      "architecture",
+      "backend-logic",
+      "erd-data-model",
+      "api",
+      "integrations",
+      "nfr",
+      "security-review",
+      "risks",
+      "mvp-scope",
+      "backlog",
+      "roadmap",
+      "open-questions",
+      "recommendations",
+      "traceability-matrix"
+    ],
+    "exclude": []
+  },
+  "images": {
+    "embed_local": true,
+    "_embed_local_comment": "Вставлять локальные .png/.jpg/.svg, на которые ссылается markdown.",
+    "diagrams": {
+      "render_mermaid": "best-effort",
+      "_render_mermaid_comment": "always | best-effort | never. 'best-effort' — пытаться рендерить, при неудаче оставить как code block с warning.",
+      "render_plantuml": "best-effort",
+      "mermaid_cli_path": null,
+      "plantuml_jar_path": null,
+      "java_path": null
+    }
+  },
+  "output": {
+    "dir": "exports",
+    "filename_stem": "final_report",
+    "_filename_stem_comment": "Базовое имя выходных файлов (без расширения).",
+    "overwrite": true
+  },
+  "secrets": {
+    "scan_before_export": true,
+    "_scan_comment": "Перед экспортом сканировать текст на наличие похожих на секреты строк (API keys, токены). При обнаружении — предупредить и не вставлять.",
+    "patterns": [
+      "(?i)api[_-]?key",
+      "(?i)secret[_-]?key",
+      "(?i)access[_-]?token",
+      "-----BEGIN [A-Z ]+PRIVATE KEY-----",
+      "sk-[A-Za-z0-9]{20,}",
+      "AKIA[0-9A-Z]{16}"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+# BeandsAnalystik — зависимости Python для скрипта экспорта отчётов
+# (scripts/export_report.py)
+#
+# Установка:  pip install -r requirements.txt
+# Python:     >= 3.8
+#
+# Зависимости разбиты по назначению. Экспортер умеет работать с любым
+# из перечисленных PDF-движков (см. scripts/export_report.py, функция pick_pdf_engine).
+
+# --- Ядро экспорта ---
+markdown>=3.5          # markdown -> HTML (расширения tables, fenced_code, toc)
+python-docx>=1.1       # генерация DOCX с заголовками, таблицами, списками
+pyyaml>=6.0            # чтение report-config.yaml/json и встроенных конфигов
+pillow>=10.0           # вставка изображений (ERD/BPMN/Sequence) в DOCX
+reportlab>=4.0         # надёжный PDF fallback с кириллицей и переносом таблиц
+
+# --- PDF-движки (любой один; мы попытаемся импортировать по очереди) ---
+# weasyprint — лучшее качество и поддержка кириллицы, но требует системных библиотек
+#   (Pango, GDK-PixBuf). На Windows может потребоваться GTK3.
+#   Установка: https://doc.courtbouillon.org/weasyprint/stable/first_steps.html
+# Опционально: основной HTML/CSS PDF-движок. На Windows требует GTK/Pango.
+weasyprint>=60.0
+
+# Альтернативы (раскомментируйте, если weasyprint недоступен в вашем окружении):
+# xhtml2pdf>=0.2.11    # чистый Python, без системных зависимостей (Pisa)
+# markdown2>=2.4       # альтернативный md->HTML конвертер
+
+# Примечание: скрипт export_report.py автоматически выбирает доступный движок
+# и сообщает пользователю, какой из них используется, с предупреждением при fallback.
